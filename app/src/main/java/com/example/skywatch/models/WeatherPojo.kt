@@ -18,7 +18,7 @@ data class WeatherItem(
 )
 
 data class HourlyItem(
-	val temp: Any? = null,
+	val temp: Double? = null,
 	val visibility: Int? = null,
 	val uvi: Any? = null,
 	val pressure: Int? = null,
@@ -36,7 +36,7 @@ data class HourlyItem(
 
 data class Current(
 	val sunrise: Int? = null,
-	val temp: Any? = null,
+	val temp: Double? = null,
 	val visibility: Int? = null,
 	val uvi: Any? = null,
 	val pressure: Int? = null,
@@ -49,7 +49,7 @@ data class Current(
 	val sunset: Int? = null,
 	val weather: List<WeatherItem?>? = null,
 	val humidity: Int? = null,
-	val windSpeed: Any? = null
+	val windSpeed: Double? = null
 )
 
 data class Temp(
@@ -57,7 +57,7 @@ data class Temp(
 	val max: Any? = null,
 	val eve: Any? = null,
 	val night: Any? = null,
-	val day: Any? = null,
+	val day: Double? = null,
 	val morn: Any? = null
 )
 
@@ -80,7 +80,9 @@ data class DailyItem(
 	val feelsLike: FeelsLike? = null,
 	val windGust: Any? = null,
 	val dt: Int? = null,
+/*
 	val pop: Int? = null,
+*/
 	val windDeg: Int? = null,
 	val dewPoint: Any? = null,
 	val sunset: Int? = null,

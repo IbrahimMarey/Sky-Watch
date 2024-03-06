@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="16dp"
+    android:layout_margin="16dp"
+    >
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="16dp"
+        xmlns:tools="http://schemas.android.com/tools"
+        >
+        <TextView
+            android:id="@+id/hourTvHourItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="2 AM"
+            android:layout_gravity="center"
+            android:textSize="16sp"
+            android:layout_marginBottom="4dp"
+            />
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieHourly"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_gravity="center"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true" />
+        <TextView
+            android:id="@+id/tempTvHourItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            tools:text="-6 c"
+            android:textSize="16sp"
+            android:layout_marginTop="4dp"
+            />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

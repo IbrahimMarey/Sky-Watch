@@ -110,21 +110,9 @@ class HomeFragment : Fragment() {
 
     }
 
-    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onStart() {
         super.onStart()
-        //setup Views
-        binding.homeViewsGroup.visibility = View.GONE
-        binding.progressHomeCircular.visibility=View.VISIBLE
-        binding.shimmerLayout.startShimmer()
-        binding.shimmerLayout.visibility=View.VISIBLE
-        binding.errorCard.visibility=View.GONE
-        ////////////
-        binding.reTryLoadWeatherBtn.setOnClickListener {
-            isLocationReceived = false
-            getLocation()
-        }
-        getLocation()
+
         /*binding.reTryLoadWeatherBtn.setOnClickListener {
             if (!checkPermission())
             {
@@ -137,8 +125,22 @@ class HomeFragment : Fragment() {
             }
         }*/
     }
+
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onResume() {
         binding.shimmerLayout.startShimmer()
+        //setup Views
+        binding.homeViewsGroup.visibility = View.GONE
+        binding.progressHomeCircular.visibility=View.VISIBLE
+        binding.shimmerLayout.startShimmer()
+        binding.shimmerLayout.visibility=View.VISIBLE
+        binding.errorCard.visibility=View.GONE
+        ////////////
+        binding.reTryLoadWeatherBtn.setOnClickListener {
+            isLocationReceived = false
+            getLocation()
+        }
+        getLocation()
         super.onResume()
     }
     override fun onPause() {

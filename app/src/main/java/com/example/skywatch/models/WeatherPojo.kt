@@ -26,7 +26,7 @@ data class HourlyItem(
 	val feelsLike: Any? = null,
 	val windGust: Any? = null,
 	val dt: Int? = null,
-	val pop: Int? = null,
+	/*val pop: Int? = null,*/
 	val windDeg: Int? = null,
 	val dewPoint: Any? = null,
 	val weather: List<WeatherItem?>? = null,

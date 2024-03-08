@@ -75,13 +75,15 @@ class SettingSharedPreferences private constructor(applicationContext: Context) 
         const val ADD_T0_ALERTS_IN_THIS_LOCATION = "ADD_T0_ALERTS_IN_THIS_LOCATION"
         const val NAVIGATE_TO_MAP = "NAVIGATE_TO_MAP"
 
-        private lateinit var instance: SettingSharedPreferences
+        private var settingSharedPreferences: SettingSharedPreferences? =null
 
         fun getInstance(application: Context): SettingSharedPreferences {
-            if (!::instance.isInitialized) {
-                instance = SettingSharedPreferences(application.applicationContext)
+            return settingSharedPreferences?: synchronized(this)
+            {
+                var instance = SettingSharedPreferences(application)
+                settingSharedPreferences =instance
+                instance
             }
-            return instance
         }
     }
 

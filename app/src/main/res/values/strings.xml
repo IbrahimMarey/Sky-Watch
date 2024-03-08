@@ -86,7 +86,7 @@
     <string name="location_request">Location request</string>
     <string name="warning">Warning</string>
     <string name="choose_your_current_location">Choose your current location</string>
-    <string name="choose_your_fav_loc">Choose your favorite Location</string>
+    <string name="choose_loc">Choose Location</string>
     <string name="choose_the_alert_loc">Choose the alert location</string>
     <string name="assure_deleting">Are you sure you want to delete</string>
     <string name="please_enable_loc">Please enable location to get correct Results</string>
@@ -100,4 +100,6 @@
     <string name="Unfortunately_no_network_connection_loc_from_map">Unfortunately no network connection so you can\'t get location from map</string>
     <string name="faild_load_data">"Can't Loading Weather "</string>
     <string name="try_again">Try Again</string>
+    <string name="del_item">Delete</string>
+    <string name="ask_del_fav">Are You Sure To Delete this Location</string>
 </resources>

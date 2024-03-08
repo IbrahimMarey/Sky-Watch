@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id ("kotlin-kapt")
     id ("androidx.navigation.safeargs")
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 
 android {
@@ -89,5 +90,8 @@ dependencies {
 
     // Shimmer
     implementation ("com.facebook.shimmer:shimmer:0.5.0")
+
+    //weatherView
+//    implementation("com.github.MatteoBattilana:WeatherView:2.0.3")
 
 }

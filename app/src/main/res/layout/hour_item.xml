@@ -22,13 +22,18 @@
             android:textSize="16sp"
             android:layout_marginBottom="4dp"
             />
-        <com.airbnb.lottie.LottieAnimationView
+        <ImageView
+            android:id="@+id/imgHourly"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_gravity="center"/>
+        <!--<com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lottieHourly"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:layout_gravity="center"
             app:lottie_autoPlay="true"
-            app:lottie_loop="true" />
+            app:lottie_loop="true" />-->
         <TextView
             android:id="@+id/tempTvHourItem"
             android:layout_width="wrap_content"

@@ -7,11 +7,13 @@
     tools:context=".views.SkyWatchActivity">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/Theme.SkyWatch.AppBarOverlay"
         >
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"

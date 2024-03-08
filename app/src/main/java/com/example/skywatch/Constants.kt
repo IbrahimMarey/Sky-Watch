@@ -3,6 +3,8 @@ package com.example.skywatch
 object Constants
 {
     const val TAG = "TAG"
+    const val DatabaseName = "sky_watch.dp"
+    const val FavNavType = "Favorite"
     const val BASE_URL ="https://api.openweathermap.org/data/3.0/"
     // API Queries
     const val API_KEY = "ecd675111da1cc1ef05fa3262bb8eb8a"

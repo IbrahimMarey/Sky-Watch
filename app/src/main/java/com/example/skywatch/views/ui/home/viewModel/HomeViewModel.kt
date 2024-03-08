@@ -31,8 +31,10 @@ class HomeViewModel(private val weatherRepo: WeatherRepo , private val skyWatchL
         viewModelScope.launch(Dispatchers.IO) {
             weatherRepo.getWeather(lat,lon).catch {
                 weather.value =HomeStatus.Failure(it.message.toString())
+                Log.i("TAG", "getWeather: ${it.message}")
             }.collect{
                 weather.value=HomeStatus.Success(it)
+                Log.i("TAG", "getWeather:${it.current?.weather?.size} ")
             }
         }
     }

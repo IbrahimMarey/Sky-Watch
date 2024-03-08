@@ -34,3 +34,17 @@ fun ImageView.setImageFromWeatherIconId4x(iconId: String){
         .placeholder(R.drawable.ic_wifi_off)
         .into(this)
 }
+
+fun getWeatherImg(img : String):Int
+{
+    when(img)
+    {
+        "01d"->return R.drawable.sun
+        "01n"->return R.drawable.moon
+        "02d"->return R.drawable.cloudy
+        "02n"->return R.drawable.cloudy_night
+        "03d","04d"-> return R.drawable.rainy_sun
+        "03n","04n"->return R.drawable.raining_moon
+        else -> return R.drawable.cloud_sun
+    }
+}

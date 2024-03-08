@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.skywatch.R
 import com.example.skywatch.databinding.DailyItemBinding
+import com.example.skywatch.helpers.getWeatherImg
 import com.example.skywatch.helpers.getWeatherLottie
 import com.example.skywatch.helpers.setDay
 import com.example.skywatch.helpers.setImageFromWeatherIconId2x
@@ -33,7 +34,8 @@ class DailyAdapter(var timeZone: TimeZone) : ListAdapter<DailyItem, DailyAdapter
             daily.dt?.let { holder.binding.textViewDay.setDay(it,timeZone) }
         }
 
-        holder.binding.lottieDaily.setAnimation(getWeatherLottie(daily?.weather?.get(0)?.icon?:"null"))
+        holder.binding.imgDaily.setImageResource(getWeatherImg(daily?.weather?.get(0)?.icon?:"null"))
+//        holder.binding.lottieDaily.setAnimation(getWeatherLottie(daily?.weather?.get(0)?.icon?:"null"))
         /*daily?.weather?.get(0)?.icon?.let {
             holder.binding.imageViewWeatherIcon.setImageFromWeatherIconId2x(
                 it

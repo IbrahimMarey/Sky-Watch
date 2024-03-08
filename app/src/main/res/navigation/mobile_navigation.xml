@@ -3,23 +3,48 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@id/nav_home">
 
     <fragment
         android:id="@+id/nav_home"
         android:name="com.example.skywatch.views.ui.home.views.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <argument
+            android:name="latLng"
+            app:argType="com.example.skywatch.models.LocationLatLngPojo"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.skywatch.views.ui.favorite.FavoriteFragment"
+        android:id="@+id/nav_fav"
+        android:name="com.example.skywatch.views.ui.favorite.views.FavoriteFragment"
         android:label="@string/menu_favorite"
-        tools:layout="@layout/fragment_favorite" />
+        tools:layout="@layout/fragment_favorite" >
+        <action
+            android:id="@+id/action_nav_fav_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
+        <action
+            android:id="@+id/action_nav_fav_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.skywatch.views.ui.slideshow.AlertFragment"
+        android:id="@+id/nav_alert"
+        android:name="com.example.skywatch.views.ui.alert.AlertFragment"
         android:label="@string/menu_alert"
         tools:layout="@layout/fragment_alert" />
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.example.skywatch.views.ui.map.views.MapsFragment"
+        android:label="Map"
+        tools:layout="@layout/fragment_google_maps" >
+        <argument
+            android:name="type"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_mapsFragment_to_nav_fav"
+            app:destination="@id/nav_fav" />
+    </fragment>
 </navigation>

@@ -1,4 +1,4 @@
-package com.example.skywatch.views.ui.slideshow
+package com.example.skywatch.views.ui.alert
 
 import android.os.Bundle
 import android.view.LayoutInflater

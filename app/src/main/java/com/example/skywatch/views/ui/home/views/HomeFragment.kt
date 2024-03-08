@@ -15,6 +15,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
@@ -27,10 +28,13 @@ import com.example.skywatch.R
 import com.example.skywatch.databinding.FragmentHomeBinding
 import com.example.skywatch.helpers.getACompleteDateFormat
 import com.example.skywatch.helpers.getAddressEnglish
+import com.example.skywatch.helpers.getWeatherImg
 import com.example.skywatch.helpers.getWeatherLottie
 import com.example.skywatch.helpers.setTemp
 import com.example.skywatch.helpers.setWindSpeed
+import com.example.skywatch.local.SkyWatchDatabase
 import com.example.skywatch.location.SkyWatchLocationManager
+import com.example.skywatch.models.LocationLatLngPojo
 import com.example.skywatch.models.WeatherPojo
 import com.example.skywatch.models.repos.WeatherRepo
 import com.example.skywatch.models.status.HomeStatus
@@ -53,6 +57,7 @@ private var isLocationReceived = false // Add this variable
 class HomeFragment : Fragment() {
 
     private lateinit var _binding: FragmentHomeBinding
+
     private val binding get() = _binding
     private lateinit var homeViewModel: HomeViewModel
     private lateinit var homeViewModelFactory: HomeViewModelFactory
@@ -61,6 +66,7 @@ class HomeFragment : Fragment() {
     private lateinit var dailyAdapter: DailyAdapter
     private lateinit var dailyLayoutManager:LinearLayoutManager
     private lateinit var hourlyLayoutManager:LinearLayoutManager
+    
     //location
     /*private lateinit var requestPermission: ActivityResultLauncher<Array<String>?>
     private lateinit var locationPermissions: Array<String>*/
@@ -71,7 +77,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         homeViewModelFactory = HomeViewModelFactory(
-            WeatherRepo.getInstance(RetrofitHelper),
+            WeatherRepo.getInstance(RetrofitHelper,SkyWatchDatabase.getInstance(requireActivity())),
             SkyWatchLocationManager.getInstance(requireActivity().application)
         )
         homeViewModel = ViewModelProvider(this, homeViewModelFactory)[HomeViewModel::class.java]
@@ -136,11 +142,27 @@ class HomeFragment : Fragment() {
         binding.shimmerLayout.visibility=View.VISIBLE
         binding.errorCard.visibility=View.GONE
         ////////////
-        binding.reTryLoadWeatherBtn.setOnClickListener {
+
+        var args =HomeFragmentArgs.fromBundle(requireArguments())
+        var latLang = args.latLng
+        if (latLang!=null)
+        {
+            homeViewModel.getWeather(latLang.lat.toString(),latLang.lng.toString())
+            getWeatherData(latLang.lat,latLang.lng)
+            Log.i("TAG", "onResume: =============")
+            binding.reTryLoadWeatherBtn.setOnClickListener {
+                getWeatherData(latLang.lat,latLang.lng)
+            }
+        }
+        else
+        {
+            binding.reTryLoadWeatherBtn.setOnClickListener {
+                isLocationReceived = false
+                getLocation()
+            }
             isLocationReceived = false
             getLocation()
         }
-        getLocation()
         super.onResume()
     }
     override fun onPause() {
@@ -228,7 +250,7 @@ class HomeFragment : Fragment() {
                 val lastLocation : Location? = p0.lastLocation
                 Log.i(Constants.TAG, "onLocationResult: ${lastLocation?.latitude.toString()}  ${lastLocation?.longitude.toString()}")
                 homeViewModel.getWeather(lastLocation?.latitude.toString(),lastLocation?.longitude.toString())
-                lifecycleScope.launch(Dispatchers.Main){
+                /*lifecycleScope.launch(Dispatchers.Main){
                     homeViewModel.weatherData.collectLatest {
                         when(it)
                         {
@@ -253,6 +275,35 @@ class HomeFragment : Fragment() {
                             }
                         }
                     }
+                }*/
+                getWeatherData(lastLocation?.latitude?:0.0,lastLocation?.longitude?:0.0)
+            }
+        }
+    }
+
+    fun getWeatherData(lat:Double,lng:Double)=lifecycleScope.launch(Dispatchers.Main){
+        homeViewModel.weatherData.collectLatest {
+            when(it)
+            {
+                is HomeStatus.Loading->{
+                    binding.homeViewsGroup.visibility = View.GONE
+                    binding.progressHomeCircular.visibility=View.VISIBLE
+                    binding.shimmerLayout.visibility=View.VISIBLE
+                    binding.errorCard.visibility=View.GONE
+                }
+                is HomeStatus.Success->{
+                    setUpUI(it.weatherPojo,lat,lng)
+                    binding.homeViewsGroup.visibility = View.VISIBLE
+                    binding.progressHomeCircular.visibility=View.GONE
+                    binding.shimmerLayout.visibility=View.GONE
+                    binding.errorCard.visibility=View.GONE
+                }
+                is HomeStatus.Failure->{
+                    binding.errorCard.visibility=View.VISIBLE
+                    binding.homeViewsGroup.visibility = View.GONE
+                    binding.progressHomeCircular.visibility=View.GONE
+                    binding.shimmerLayout.visibility=View.GONE
+                    Toast.makeText(requireActivity(), it.errMsg.toString(), Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -263,7 +314,7 @@ class HomeFragment : Fragment() {
                 locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
     }
 
-    private fun setUpUI(it:WeatherPojo,lastLocation : Location?){
+    private fun setUpUI(it:WeatherPojo,lat:Double,lng:Double){
         hourlyAdapter.submitList(it.hourly)
         dailyAdapter.submitList(it.daily)
 
@@ -274,11 +325,12 @@ class HomeFragment : Fragment() {
 
         binding.locationAddressTV.text = getAddressEnglish(
             requireActivity(),
-            lastLocation?.latitude,
-            lastLocation?.longitude
+            lat,
+            lng
         )
 
-        binding.lottieCurrent.setAnimation(getWeatherLottie(it.current?.weather?.get(0)?.icon ?:"null"))
+        binding.currentImg.setImageResource(getWeatherImg(it.current?.weather?.get(0)?.icon ?:"null"))
+//        binding.lottieCurrent.setAnimation(getWeatherLottie(it.current?.weather?.get(0)?.icon ?:"null"))
 
         binding.tempTV.setTemp(
 

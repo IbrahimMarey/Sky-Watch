@@ -29,12 +29,10 @@ import com.example.skywatch.databinding.FragmentHomeBinding
 import com.example.skywatch.helpers.getACompleteDateFormat
 import com.example.skywatch.helpers.getAddressEnglish
 import com.example.skywatch.helpers.getWeatherImg
-import com.example.skywatch.helpers.getWeatherLottie
 import com.example.skywatch.helpers.setTemp
 import com.example.skywatch.helpers.setWindSpeed
 import com.example.skywatch.local.SkyWatchDatabase
 import com.example.skywatch.location.SkyWatchLocationManager
-import com.example.skywatch.models.LocationLatLngPojo
 import com.example.skywatch.models.WeatherPojo
 import com.example.skywatch.models.repos.WeatherRepo
 import com.example.skywatch.models.status.HomeStatus
@@ -66,10 +64,6 @@ class HomeFragment : Fragment() {
     private lateinit var dailyAdapter: DailyAdapter
     private lateinit var dailyLayoutManager:LinearLayoutManager
     private lateinit var hourlyLayoutManager:LinearLayoutManager
-    
-    //location
-    /*private lateinit var requestPermission: ActivityResultLauncher<Array<String>?>
-    private lateinit var locationPermissions: Array<String>*/
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -86,20 +80,9 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        /*//setup Views
-        binding.homeViewsGroup.visibility = View.GONE
-        binding.progressHomeCircular.visibility=View.VISIBLE
-        binding.shimmerLayout.startShimmer()
-        binding.shimmerLayout.visibility=View.VISIBLE
-        binding.errorCard.visibility=View.GONE
-        ////////////
-        binding.reTryLoadWeatherBtn.setOnClickListener {
-            isLocationReceived = false
-            getLocation()
-        }
-        getLocation()*/
         dailyLayoutManager = LinearLayoutManager(requireActivity())
         dailyLayoutManager.orientation=RecyclerView.HORIZONTAL
         dailyAdapter = DailyAdapter(TimeZone.getDefault())
@@ -113,23 +96,10 @@ class HomeFragment : Fragment() {
 
         binding.hourlyRecyclerView.adapter = hourlyAdapter
         binding.hourlyRecyclerView.layoutManager = hourlyLayoutManager
-
     }
 
     override fun onStart() {
         super.onStart()
-
-        /*binding.reTryLoadWeatherBtn.setOnClickListener {
-            if (!checkPermission())
-            {
-                requestPermission.launch(locationPermissions)
-            }else if (!homeViewModel.isLocationEnabled())
-            {
-                Log.i(Constants.TAG, "onStart: Location don't allwo")
-            }else{
-
-            }
-        }*/
     }
 
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
@@ -250,32 +220,6 @@ class HomeFragment : Fragment() {
                 val lastLocation : Location? = p0.lastLocation
                 Log.i(Constants.TAG, "onLocationResult: ${lastLocation?.latitude.toString()}  ${lastLocation?.longitude.toString()}")
                 homeViewModel.getWeather(lastLocation?.latitude.toString(),lastLocation?.longitude.toString())
-                /*lifecycleScope.launch(Dispatchers.Main){
-                    homeViewModel.weatherData.collectLatest {
-                        when(it)
-                        {
-                            is HomeStatus.Loading->{
-                                binding.homeViewsGroup.visibility = View.GONE
-                                binding.progressHomeCircular.visibility=View.VISIBLE
-                                binding.shimmerLayout.visibility=View.VISIBLE
-                                binding.errorCard.visibility=View.GONE
-                            }
-                            is HomeStatus.Success->{
-                                setUpUI(it.weatherPojo,lastLocation)
-                                binding.homeViewsGroup.visibility = View.VISIBLE
-                                binding.progressHomeCircular.visibility=View.GONE
-                                binding.shimmerLayout.visibility=View.GONE
-                                binding.errorCard.visibility=View.GONE
-                            }
-                            is HomeStatus.Failure->{
-                                binding.errorCard.visibility=View.VISIBLE
-                                binding.homeViewsGroup.visibility = View.GONE
-                                binding.progressHomeCircular.visibility=View.GONE
-                                binding.shimmerLayout.visibility=View.GONE
-                            }
-                        }
-                    }
-                }*/
                 getWeatherData(lastLocation?.latitude?:0.0,lastLocation?.longitude?:0.0)
             }
         }

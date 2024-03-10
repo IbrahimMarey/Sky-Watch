@@ -1,6 +1,7 @@
 package com.example.skywatch.models.repos
 
 import com.example.skywatch.local.SkyWatchDatabase
+import com.example.skywatch.models.AlertPojo
 import com.example.skywatch.models.FavoritePojo
 import com.example.skywatch.models.WeatherPojo
 import com.example.skywatch.remote.RetrofitHelper
@@ -36,6 +37,18 @@ class WeatherRepo private constructor(private val retrofitHelper:RetrofitHelper,
 
     override suspend fun delFavLocation(favoritePojo: FavoritePojo): Int {
         return skyWatchDatabase.SkyWatchDao().delFavLocation(favoritePojo)
+    }
+
+    override suspend fun insertAlertLocation(alertPojo: AlertPojo): Long {
+        return skyWatchDatabase.SkyWatchDao().insertAlertLocation(alertPojo)
+    }
+
+    override suspend fun delAlertLocation(alertPojo: AlertPojo): Int {
+        return skyWatchDatabase.SkyWatchDao().delAlertLocation(alertPojo)
+    }
+
+    override suspend fun getAllAlertLocations(): List<AlertPojo> {
+        return skyWatchDatabase.SkyWatchDao().getAllAlertLocations()
     }
 
 

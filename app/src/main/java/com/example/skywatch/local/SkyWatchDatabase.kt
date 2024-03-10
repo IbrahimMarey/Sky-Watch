@@ -5,9 +5,10 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.skywatch.Constants
+import com.example.skywatch.models.AlertPojo
 import com.example.skywatch.models.FavoritePojo
 
-@Database(entities = [FavoritePojo::class], version = 1)
+@Database(entities = [FavoritePojo::class, AlertPojo::class], version = 1)
 abstract class SkyWatchDatabase :RoomDatabase()
 {
     abstract fun SkyWatchDao():SkyWatchDao

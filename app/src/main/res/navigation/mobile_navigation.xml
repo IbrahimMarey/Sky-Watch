@@ -32,9 +32,13 @@
 
     <fragment
         android:id="@+id/nav_alert"
-        android:name="com.example.skywatch.views.ui.alert.AlertFragment"
+        android:name="com.example.skywatch.views.ui.alert.views.AlertFragment"
         android:label="@string/menu_alert"
-        tools:layout="@layout/fragment_alert" />
+        tools:layout="@layout/fragment_alert" >
+        <action
+            android:id="@+id/action_nav_alert_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/mapsFragment"
         android:name="com.example.skywatch.views.ui.map.views.MapsFragment"
@@ -47,4 +51,9 @@
             android:id="@+id/action_mapsFragment_to_nav_fav"
             app:destination="@id/nav_fav" />
     </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.skywatch.views.ui.settings.views.SettingsFragment"
+        android:label="@string/action_settings"
+        tools:layout="@layout/fragment_settings" />
 </navigation>

@@ -140,7 +140,7 @@ class HomeFragment : Fragment() {
         }
         //setup Views
         binding.homeViewsGroup.visibility = View.GONE
-        binding.progressHomeCircular.visibility=View.VISIBLE
+        binding.progressHomeCircular.visibility=View.GONE
         binding.shimmerLayout.startShimmer()
         binding.shimmerLayout.visibility=View.VISIBLE
         binding.errorCard.visibility=View.GONE
@@ -344,7 +344,7 @@ class HomeFragment : Fragment() {
             {
                 is HomeStatus.Loading->{
                     binding.homeViewsGroup.visibility = View.GONE
-                    binding.progressHomeCircular.visibility=View.VISIBLE
+                    binding.progressHomeCircular.visibility=View.GONE
                     binding.shimmerLayout.visibility=View.VISIBLE
                     binding.errorCard.visibility=View.GONE
                 }

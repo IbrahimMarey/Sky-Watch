@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Sky Watch</string>
+    <!-- TODO: Entfernen oder ändern Sie diesen Platzhaltertext -->
+    <string name="navigation_drawer_open">Navigationsschublade öffnen</string>
+    <string name="navigation_drawer_close">Navigationsschublade schließen</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigationsheader</string>
+    <string name="action_settings">Einstellungen</string>
+
+    <string name="menu_home">Startseite</string>
+    <string name="menu_favorite">Favorit</string>
+    <string name="menu_alert">Alarm</string>
+    <string name="daily">Täglich</string>
+
+
+    <string name="title_home">Zuhause</string>
+    <string name="title_favorites">Favoriten</string>
+    <string name="title_alarm">Alarm</string>
+    <string name="title_setting">Einstellung</string>
+    <string name="celsius">Celsius</string>
+    <string name="fahrenheit">Fahrenheit</string>
+    <string name="kelvin">Kelvin</string>
+    <string name="sunset">Sonnenuntergang:</string>
+    <string name="sunrise">Sonnenaufgang:</string>
+    <string name="degree" translatorable="false">°</string>
+    <string name="hourly">Stündlich</string>
+    <string name="weekly">Wöchentlich</string>
+    <string name="pressure">Druck</string>
+    <string name="humidity">Luftfeuchtigkeit</string>
+    <string name="wind">Wind</string>
+    <string name="cloud">Wolke</string>
+    <string name="ultraviolet">Ultraviolett</string>
+    <string name="visibility">Sichtbarkeit</string>
+    <string name="sunday">Sonntag</string>
+    <string name="monday">Montag</string>
+    <string name="tuesday">Dienstag</string>
+    <string name="wednesday">Mittwoch</string>
+    <string name="thursday">Donnerstag</string>
+    <string name="friday">Freitag</string>
+    <string name="saturday">Samstag</string>
+    <string name="today">Heute</string>
+    <string name="now">Jetzt</string>
+    <string name="meter_per_second">" Meter / Sekunde"</string>
+    <string name="mile_per_hour">"Meile / Stunde"</string>
+    <string name="arabic">Arabisch</string>
+    <string name="english">Englisch (UK)</string>
+    <string name="gps">GPS</string>
+    <string name="map">Karte</string>
+    <string name="notification">Benachrichtigung</string>
+    <string name="language">Sprache</string>
+    <string name="location">Standort</string>
+    <string name="temperature">Temperatur</string>
+    <string name="wind_speed">Windgeschwindigkeit</string>
+    <string name="m">" m"</string>
+    <string name="hpa">" hPa"</string>
+    <string name="c_symbol" translatorable="false"><sup>°C</sup></string>
+    <string name="k_symbol" translatorable="false"><sup>°K</sup></string>
+    <string name="f_symbol" translatorable="false"><sup>°F</sup></string>
+    <string name="no_favorites_yet">Noch keine Lieblingsorte</string>
+    <string name="save_location_to_fav">Als Favorit speichern</string>
+    <string name="internet_connection_is_lost">Internetverbindung ist verloren</string>
+    <string name="network_is_restored">Netzwerk ist wiederhergestellt</string>
+    <string name="refresh">Aktualisieren</string>
+    <string name="no_internet_connection">Keine Internetverbindung</string>
+    <string name="check_your_connection">Überprüfen Sie Ihre Verbindung und aktualisieren Sie dann die Seite.</string>
+    <string name="no_alarms_yet">Noch keine Alarme</string>
+    <string name="dash">-</string>
+    <string name="from">Von</string>
+    <string name="to">An</string>
+    <string name="save">Speichern</string>
+    <string name="set_alarm">Alarm einstellen</string>
+    <string name="alarm">Alarm</string>
+    <string name="weather_alert">Wetterwarnung</string>
+    <string name="weather_is_fine_alert">Das Wetter ist gut. Keine Warnungen für den geplanten Zeitraum in %1$s</string>
+    <string name="dismiss">ENTLASSEN</string>
+    <string name="intial_setup">Ersteinrichtung</string>
+    <string name="save_location">Standort speichern</string>
+    <string name="please_choose_loc_first">Bitte wählen Sie zuerst den Standort aus</string>
+    <string name="The_alarm_may_be_not_work_as_expected">Der Alarm funktioniert möglicherweise nicht wie erwartet. Bitte aktivieren Sie die Anzeige über einer anderen App</string>
+    <string name="unfortunately_the_display_over_other_apps_permission_is_not_granted">Leider wird die Berechtigung zur Anzeige über anderen Apps nicht erteilt, sodass sich die Anwendung möglicherweise nicht richtig verhält</string>
+    <string name="please_allow_draw_over_apps_permission">Bitte erteilen Sie die Berechtigung „Draw Over Apps“, um die Anwendung ordnungsgemäß verwenden zu können</string>
+    <string name="permission_request">Berechtigungsanfrage</string>
+    <string name="location_request">Standortanfrage</string>
+    <string name="warning">Warnung</string>
+    <string name="choose_your_current_location">Wählen Sie Ihren aktuellen Standort</string>
+    <string name="choose_loc">Standort auswählen</string>
+    <string name="choose_the_alert_loc">Wählen Sie den Alarmort aus</string>
+    <string name="assure_deleting">Sind Sie sicher, dass Sie löschen möchten</string>
+    <string name="please_enable_loc">Bitte aktivieren Sie den Standort, um korrekte Ergebnisse zu erhalten</string>
+    <string name="enable">Aktivieren</string>
+    <string name="Unfortunately_the_location_is_disabled">Leider ist der Standort deaktiviert, sodass sich die Anwendung möglicherweise nicht richtig verhält</string>
+    <string name="yes">Ja</string>
+    <string name="no">Nein</string>
+    <string name="we_can_t_fetch_your_location">Wir können Ihren Standort nicht abrufen</string>
+    <string name="allow">Zulassen</string>
+    <string name="please_allow_weather_to_access_your_location">Bitte erlauben Sie Weather den Zugriff auf Ihren Standort</string>
+    <string name="Unfortunately_no_network_connection_loc_from_map">Leider keine Netzwerkverbindung, sodass Sie den Standort nicht über die Karte ermitteln können</string>
+    <string name="faild_load_data">„Wetter kann nicht geladen werden“</string>
+    <string name="try_again">Erneut versuchen</string>
+    <string name="del_item">Löschen</string>
+    <string name="ask_del_fav">Sind Sie sicher, dass Sie diesen Standort löschen</string>?
+    <string name="notification_permmission_desc">Diese App benötigt eine Benachrichtigungsberechtigung, um ordnungsgemäß zu funktionieren</string>
+    <string name="notification_permission_title">Benachrichtigungsberechtigung erforderlich</string>
+    <string name="german">Deutsch</string>
+    <string name="disable">Deaktivieren</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="some_thing_want_rong">Etwas ist passiert, bitte überprüfen Sie die Sky Watch</string>
+</resources>

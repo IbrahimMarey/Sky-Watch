@@ -5,18 +5,57 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".views.ui.favorite.views.FavoriteFragment">
+
+    <ProgressBar
+        android:id="@+id/favProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+    <LinearLayout
+        android:id="@+id/favNotFound"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+        <ImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/ic_not_found"
+            android:layout_margin="16dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_favorites_yet"
+            android:textSize="18dp"
+            android:textColor="@color/app_color"
+            />
+    </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/favRecycler"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        tools:itemCount="10"
+        tools:listitem="@layout/favorite_item"
+        />
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addToFav"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="@dimen/fab_margin"
-        android:layout_marginBottom="16dp"
-        app:srcCompat="@android:drawable/ic_input_add"
+        android:layout_marginBottom="@dimen/fab_margin"
+        android:src="@drawable/ic_add"
+        android:backgroundTint="@color/app_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         />

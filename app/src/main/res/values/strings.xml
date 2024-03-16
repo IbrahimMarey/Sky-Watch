@@ -1,8 +1,6 @@
 <resources>
     <string name="app_name">Sky Watch</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_sky_watch">SkyWatchActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -43,10 +41,10 @@
     <string name="saturday">Saturday</string>
     <string name="today">Today</string>
     <string name="now">Now</string>
-    <string name="meter_per_second">" m/s"</string>
-    <string name="mile_per_hour">" mph"</string>
+    <string name="meter_per_second">" Meter / Sec"</string>
+    <string name="mile_per_hour">"Mile / Hour"</string>
     <string name="arabic">Arabic</string>
-    <string name="english">English</string>
+    <string name="english">English (UK)</string>
     <string name="gps">GPS</string>
     <string name="map">Map</string>
     <string name="notification">Notification</string>
@@ -90,7 +88,7 @@
     <string name="choose_the_alert_loc">Choose the alert location</string>
     <string name="assure_deleting">Are you sure you want to delete</string>
     <string name="please_enable_loc">Please enable location to get correct Results</string>
-    <string name="enable">enable</string>
+    <string name="enable">Enable</string>
     <string name="Unfortunately_the_location_is_disabled">Unfortunately the location is disabled so the application might not behave properly</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
@@ -102,4 +100,10 @@
     <string name="try_again">Try Again</string>
     <string name="del_item">Delete</string>
     <string name="ask_del_fav">Are You Sure To Delete this Location</string>
+    <string name="notification_permmission_desc">This app requires notification permission to function properly</string>
+    <string name="notification_permission_title">Notification Permission Required</string>
+    <string name="german">German</string>
+    <string name="disable">Disable</string>
+    <string name="cancel">Cancel</string>
+    <string name="some_thing_want_rong">Something happened, please check the Sky Watch</string>
 </resources>

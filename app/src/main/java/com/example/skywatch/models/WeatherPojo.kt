@@ -5,9 +5,9 @@ data class WeatherPojo(
 	val timezone: String? = null,
 	val timezoneOffset: Int? = null,
 	val daily: List<DailyItem?>? = null,
-	val lon: Any? = null,
+	val lon: Double? = null,
 	val hourly: List<HourlyItem?>? = null,
-	val lat: Any? = null
+	val lat: Double? = null
 )
 
 data class WeatherItem(
@@ -88,6 +88,6 @@ data class DailyItem(
 	val sunset: Int? = null,
 	val weather: List<WeatherItem?>? = null,
 	val humidity: Int? = null,
-	val windSpeed: Any? = null
+	val windSpeed: Double? = null
 )
 

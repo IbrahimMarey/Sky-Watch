@@ -27,7 +27,7 @@ class FavoriteAdapter(private val itemClick:(LocationLatLngPojo)->Unit, private 
     override fun onBindViewHolder(holder: FavViewHolder, position: Int)
     {
         var favoritePojo: FavoritePojo = getItem(position)
-        holder.binding.favItemTitle.text = getAddressEnglish(context,favoritePojo.lat,favoritePojo.lng)
+        holder.binding.favItemTitle.text = favoritePojo.address
 
         holder.binding.favItemDel.setOnClickListener {
             delItem(favoritePojo)

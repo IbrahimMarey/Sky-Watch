@@ -1,10 +1,8 @@
 package com.example.skywatch.views
 
-import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
-import androidx.annotation.RequiresApi
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -40,7 +38,7 @@ class SkyWatchActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.sky_watch, menu)
+//        menuInflater.inflate(R.menu.sky_watch, menu)
         return true
     }
 
@@ -49,7 +47,6 @@ class SkyWatchActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
-    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onResume() {
         super.onResume()
         navController.addOnDestinationChangedListener { controller, destination, arguments ->

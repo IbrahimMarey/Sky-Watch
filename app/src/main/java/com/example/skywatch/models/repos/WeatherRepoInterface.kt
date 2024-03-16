@@ -15,5 +15,7 @@ interface WeatherRepoInterface
     suspend fun delFavLocation(favoritePojo: FavoritePojo):Int
     suspend fun insertAlertLocation(alertPojo: AlertPojo):Long
     suspend fun delAlertLocation(alertPojo: AlertPojo):Int
-    suspend fun getAllAlertLocations(): List<AlertPojo>
+    suspend fun getAllAlertLocations(): Flow<List<AlertPojo>>
+
+    fun getAlertWithId(entryId: String): AlertPojo
 }

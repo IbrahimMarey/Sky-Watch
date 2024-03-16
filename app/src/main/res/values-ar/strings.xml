@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Sky Watch</string>
+    <string name="title_home">الرئيسية</string>
+    <string name="title_favorites">المفضلة</string>
+    <string name="title_alarm">المنبه</string>
+    <string name="title_setting">الاعدادات</string>
+    <string name="celsius">سيليزيوس</string>
+    <string name="fahrenheit">فهرنهايت</string>
+    <string name="kelvin">كيلفين</string>
+    <string name="sunset">الغروب</string>
+    <string name="sunrise">الشروق</string>
+    <string name="hourly">اليوم</string>
+    <string name="weekly">هذا الاسبوع</string>
+    <string name="pressure">الضغط</string>
+    <string name="humidity">الرطوبة</string>
+    <string name="wind">الرياح</string>
+    <string name="cloud">نسبةالغيوم</string>
+    <string name="ultraviolet">مؤشرUV</string>
+    <string name="visibility">مدى الرؤية</string>
+    <string name="sunday">الأحد</string>
+    <string name="monday">الأثنين</string>
+    <string name="tuesday">الثلاثاء</string>
+    <string name="wednesday">الأربع</string>
+    <string name="thursday">الخميس</string>
+    <string name="friday">الجمعة</string>
+    <string name="saturday">السبت</string>
+    <string name="today">اليوم</string>
+    <string name="now">الأن</string>
+    <string name="meter_per_second">" م/ث"</string>
+    <string name="mile_per_hour">" ميل/س"</string>
+    <string name="arabic">العربية</string>
+    <string name="english">الانجليزية</string>
+    <string name="gps">موقعي الحالي</string>
+    <string name="map">الخريطة</string>
+    <string name="notification">الاشعارات</string>
+    <string name="language">اللغة</string>
+    <string name="location">الموقع</string>
+    <string name="temperature">الحرارة</string>
+    <string name="wind_speed">سرعة الرياح</string>
+    <string name="m">" م"</string>
+    <string name="hpa">" ه.ب.ا"</string>
+    <string name="no_favorites_yet">لا يوجد اماكن مفضلة حتى الأن</string>
+    <string name="save_location_to_fav">حفظ الي المفضلة</string>
+    <string name="internet_connection_is_lost">لا يوجد اتصال بالانترنت</string>
+    <string name="network_is_restored">تم استعادة الاتصال بالانترنت</string>
+    <string name="refresh">اعادة التحميل</string>
+    <string name="no_internet_connection">لا يوجد اتصال بالانترنت</string>
+    <string name="check_your_connection">قم باختبار اتصالك بالانترنت ثم اعد تحميل الصفحة</string>
+    <string name="no_alarms_yet">لا يوجد تنبيهات حتى الان</string>
+    <string name="dash">-</string>
+    <string name="from">من</string>
+    <string name="to">إلى</string>
+    <string name="save">احفظ</string>
+    <string name="alarm">المنبه</string>
+    <string name="weather_alert">تحذيرات الطقس</string>
+    <string name="weather_is_fine_alert">%1$s الطقس رائع، لا ييوجد تحذيرات في هذة الفترة في </string>
+    <string name="dismiss">تجاهل</string>
+    <string name="intial_setup">الاعدادات الاولية</string>
+    <string name="save_location">احفظ المكان</string>
+    <string name="please_choose_loc_first">الرجاء اختيار المكان اولا</string>
+    <string name="The_alarm_may_be_not_work_as_expected">قد لا يعمل المنبه بشكل صحيح، الرجاء تفعيل إذن العرض فوق التطبيقات الأخرى</string>
+    <string name="unfortunately_the_display_over_other_apps_permission_is_not_granted">للأسف، لم يتم منح إذن العرض فوق التطبيقات الأخرى، لذا قد لا يعمل التطبيق بشكل صحيح</string>
+    <string name="please_allow_draw_over_apps_permission">يرجى السماح بإذن العرض فوق التطبيقات لتمكين استخدام التطبيق بشكل صحيح</string>
+    <string name="permission_request">طلب اذن</string>
+    <string name="location_request">تفعيل المكان</string>
+    <string name="warning">تنبيه</string>
+    <string name="choose_your_current_location">اختر مكانك الحالي</string>
+    <string name="choose_the_alert_loc">اختر مكان للتنبيهات</string>
+    <string name="assure_deleting">هل أنت متأكد أنك تريد الحذف؟</string>
+    <string name="please_enable_loc">يرجى تفعيل الموقع للحصول على نتائج صحيحة</string>
+    <string name="enable">تفعيل</string>
+    <string name="Unfortunately_the_location_is_disabled">للأسف، تم تعطيل الموقع، لذا قد لا يعمل التطبيق بشكل صحيح</string>
+    <string name="yes">نعم</string>
+    <string name="no">لا</string>
+    <string name="we_can_t_fetch_your_location">لا يمكننا الوصول إلى موقعك</string>
+    <string name="allow">السماح</string>
+    <string name="set_alarm">تعيين التنبيه</string>
+    <string name="please_allow_weather_to_access_your_location">يرجى السماح لـ التطبيق بالوصول إلى موقعك لعرض الطقس</string>
+    <string name="Unfortunately_no_network_connection_loc_from_map">عذراً، لا يوجد اتصال بالشبكة، لا يمكن الحصول على الموقع من الخريطة</string>
+    <string name="choose_loc">اختر مكان</string>
+
+
+    <!---->
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">الإعدادات</string>
+
+    <string name="menu_home">الرئيسية</string>
+    <string name="menu_favorite">مفضلة</string>
+    <string name="menu_alert">تنبيهات</string>
+    <string name="daily">يومي</string>
+
+
+    <!---->
+
+    <string name="faild_load_data">"لا يمكن تحميل الطقس</string>
+    <string name="try_again">حاول ثانية</string>
+    <string name="del_item">حذف</string>
+    <string name="ask_del_fav">هل أنت متأكد من حذف هذا الموقع</string>
+    <string name="notification_permmission_desc">يتطلب هذا التطبيق إذن الاشعارات ليعمل بشكل صحيح</string>
+    <string name="notification_permission_title">إذن الإشعارات مطلوب</string>
+    <string name="german">ألمانية</string>
+    <string name="disable">إبطال</string>
+    <string name="cancel">إلغاء</string>
+    <string name="some_thing_want_rong">حدث شيء ما، يرجى التحقق من Sky Watch</string>
+</resources>

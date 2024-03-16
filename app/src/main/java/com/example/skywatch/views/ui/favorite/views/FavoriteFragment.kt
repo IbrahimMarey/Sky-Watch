@@ -13,11 +13,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.skywatch.Constants
 import com.example.skywatch.R
 import com.example.skywatch.databinding.FragmentFavoriteBinding
+import com.example.skywatch.helpers.NetworkConnectivity
+import com.example.skywatch.local.LocalDataSource
 import com.example.skywatch.local.SkyWatchDatabase
 import com.example.skywatch.models.FavoritePojo
 import com.example.skywatch.models.LocationLatLngPojo
 import com.example.skywatch.models.repos.WeatherRepo
 import com.example.skywatch.models.status.FavoriteStatus
+import com.example.skywatch.remote.RemoteDataSource
 import com.example.skywatch.remote.RetrofitHelper
 import com.example.skywatch.views.ui.favorite.viewModel.FavoriteViewModel
 import com.example.skywatch.views.ui.favorite.viewModel.FavoriteViewModelFactory
@@ -45,16 +48,16 @@ class FavoriteFragment : Fragment() {
         _binding = FragmentFavoriteBinding.inflate(inflater, container, false)
         val root: View = binding.root
         favoriteViewModelFactory = FavoriteViewModelFactory(
-            WeatherRepo.getInstance(RetrofitHelper, SkyWatchDatabase.getInstance(requireActivity()))
+            WeatherRepo.getInstance(
+                RemoteDataSource.getInstance(RetrofitHelper.service),
+                LocalDataSource.getInstance(SkyWatchDatabase.getInstance(requireActivity()).SkyWatchDao())
+                )
         )
         favoriteViewModel = ViewModelProvider(this , favoriteViewModelFactory)[FavoriteViewModel::class.java]
 
         val delFavItem:(FavoritePojo)->Unit=
             {pojo->
-                Snackbar.make(requireView(), getString(R.string.ask_del_fav), Snackbar.LENGTH_LONG)
-                .setAction(getString(R.string.del_item)) {
-                    favoriteViewModel.delFromFavorites(pojo)
-                }.show()
+                delFavSnack(pojo)
             }
         val itemClick:(LocationLatLngPojo)->Unit=
             {
@@ -66,28 +69,62 @@ class FavoriteFragment : Fragment() {
         layoutManager = LinearLayoutManager(requireActivity())
         return root
     }
-
+    private fun delFavSnack(favoritePojo: FavoritePojo){
+        Snackbar.make(requireView(), getString(R.string.ask_del_fav), Snackbar.LENGTH_LONG)
+            .setAction(getString(R.string.del_item)) {
+                favoriteViewModel.delFromFavorites(favoritePojo)
+            }.show()
+    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.favProgress.visibility=View.VISIBLE
+        binding.favNotFound.visibility = View.GONE
+        binding.favRecycler.visibility = View.GONE
         binding.favRecycler.adapter = favoriteAdapter
         binding.favRecycler.layoutManager = layoutManager
         lifecycleScope.launch(Dispatchers.Main) {
             favoriteViewModel.favoriteList.collectLatest {
                 when(it)
                 {
-                    is FavoriteStatus.Loading->{}
+                    is FavoriteStatus.Loading->{
+                        binding.favProgress.visibility=View.VISIBLE
+                        binding.favNotFound.visibility = View.GONE
+                        binding.favRecycler.visibility = View.GONE
+                    }
                     is FavoriteStatus.Success->{
-                        favoriteAdapter.submitList(it.favoriteList)
+                        if (it.favoriteList.isNullOrEmpty())
+                        {
+                            binding.favProgress.visibility=View.GONE
+                            binding.favNotFound.visibility = View.VISIBLE
+                            binding.favRecycler.visibility = View.GONE
+                        }
+                        else{
+                            binding.favProgress.visibility=View.GONE
+                            binding.favNotFound.visibility = View.GONE
+                            binding.favRecycler.visibility = View.VISIBLE
+                            favoriteAdapter.submitList(it.favoriteList)
+                        }
                     }
                     is FavoriteStatus.Failure->{
+                        binding.favProgress.visibility=View.GONE
+                        binding.favNotFound.visibility = View.VISIBLE
+                        binding.favRecycler.visibility = View.GONE
                         Toast.makeText(requireActivity(), it.errMsg, Toast.LENGTH_SHORT).show()
                     }
                 }
             }
         }
         binding.addToFav.setOnClickListener {
-            var action:FavoriteFragmentDirections.ActionNavFavToMapsFragment  = FavoriteFragmentDirections.actionNavFavToMapsFragment(Constants.FavNavType)
-            Navigation.findNavController(it).navigate(action)
+            if (NetworkConnectivity.getInstance(requireActivity().application).isOnline())
+            {
+                var action:FavoriteFragmentDirections.ActionNavFavToMapsFragment  = FavoriteFragmentDirections.actionNavFavToMapsFragment(Constants.FavNavType)
+                Navigation.findNavController(it).navigate(action)
+            }else
+            {
+                Snackbar.make(requireView(), getString(R.string.check_your_connection), Snackbar.LENGTH_LONG)
+                    .setAction(getString(R.string.dismiss)) {
+                    }.show()
+            }
         }
     }
 

@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.compose.runtime.Composable
+import androidx.navigation.Navigation
+import com.example.skywatch.Constants
 import com.example.skywatch.R
 import com.example.skywatch.databinding.FragmentSettingsBinding
 import com.example.skywatch.helpers.SettingSharedPreferences
@@ -38,11 +40,17 @@ class SettingsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpUI()
-        if (getLanguageLocale() == "ar") {
+        when(getLanguageLocale())
+        {
+            "ar"-> binding.radioLanguageArabic.toggle()
+            "en"->binding.radioLanguageEnglish.toggle()
+            "de-rDE"->binding.radioLanguageGerman.toggle()
+        }
+        /*if (getLanguageLocale() == "ar") {
             binding.radioLanguageArabic.toggle()
         } else {
             binding.radioLanguageEnglish.toggle()
-        }
+        }*/
         when (settingSharedPreferences.getWindSpeedPref()) {
             SettingSharedPreferences.METER_PER_SECOND -> binding.radioWindMeter.toggle()
             SettingSharedPreferences.MILE_PER_HOUR -> binding.radioWindMile.toggle()
@@ -63,6 +71,7 @@ class SettingsFragment : Fragment() {
             when (checked) {
                 R.id.radioLanguageArabic -> changeLanguageLocaleTo("ar")
                 R.id.radioLanguageEnglish -> changeLanguageLocaleTo("en")
+                R.id.radioLanguageGerman -> changeLanguageLocaleTo("de-rDE")
             }
         }
         binding.locationGroup.setOnCheckedChangeListener { _, checked ->
@@ -74,10 +83,8 @@ class SettingsFragment : Fragment() {
                     requireActivity().recreate()
                 }
                 R.id.radioLocationMap -> {
-                    settingSharedPreferences.setLocationPref(
-                        SettingSharedPreferences.MAP
-                    )
-                    // Should enable map here
+                    val action = SettingsFragmentDirections.actionSettingsFragmentToMapsFragment(Constants.SettingNavType)
+                    Navigation.findNavController(requireView()).navigate(action)
                 }
             }
         }

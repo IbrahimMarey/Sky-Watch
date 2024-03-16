@@ -15,13 +15,15 @@ interface SkyWatchDao {
     suspend fun insertFavLocation(favoritePojo: FavoritePojo):Long
     @Delete
     suspend fun delFavLocation(favoritePojo: FavoritePojo):Int
-    @Query("SELECT * FROM fav_sky_watch")
+    @Query("SELECT * FROM FavoriteLocations")
     suspend fun getAllFavLocations(): List<FavoritePojo>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertAlertLocation(alertPojo: AlertPojo):Long
     @Delete
     suspend fun delAlertLocation(alertPojo: AlertPojo):Int
-    @Query("SELECT * FROM alert_sky_watch")
+    @Query("SELECT * FROM AlertSkyWatch")
     suspend fun getAllAlertLocations(): List<AlertPojo>
+    @Query("select * from AlertSkyWatch where id = :id limit 1")
+    fun getAlertWithId(id: String): AlertPojo
 }

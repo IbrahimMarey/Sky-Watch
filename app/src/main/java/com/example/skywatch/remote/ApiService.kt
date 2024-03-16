@@ -18,7 +18,7 @@ interface ApiService
         @Query("units") units:String = Constants.UNITS): WeatherPojo
 }
 object RetrofitHelper{
-    val retrofitInstance= Retrofit.Builder()
+    private val retrofitInstance= Retrofit.Builder()
         .baseUrl(Constants.BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
@@ -27,18 +27,3 @@ object RetrofitHelper{
         retrofitInstance.create(ApiService::class.java)
     }
 }
-/*
-*
-  @GET("onecall?")
-    suspend fun getCurrentWeather(@Query("lat") lat: String?,
-                                  @Query("lon") lon: String?,
-                                  @Query("appid") appId:String=Constants.APPID,
-                                  @Query("lang") lang:String,
-                                  @Query("units") units:String ): Welcome
-    @GET("onecall?")
-    suspend fun getCurrentWeatherTCallBack(@Query("lat") lat: String?,
-                                  @Query("lon") lon: String?,
-                                  @Query("appid") appId:String=Constants.APPID,
-                                  @Query("lang") lang:String,
-                                  @Query("units") units:String ): Response<Welcome>
-                                  * */

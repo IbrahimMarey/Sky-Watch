@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.SkyWatch" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-         <item name="colorPrimary">@color/fav</item>
+         <item name="colorPrimary">@color/app_color</item>
     </style>
 
     <style name="Theme.SkyWatch" parent="Base.Theme.SkyWatch" />

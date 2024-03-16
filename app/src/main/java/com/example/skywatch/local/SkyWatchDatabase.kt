@@ -8,7 +8,7 @@ import com.example.skywatch.Constants
 import com.example.skywatch.models.AlertPojo
 import com.example.skywatch.models.FavoritePojo
 
-@Database(entities = [FavoritePojo::class, AlertPojo::class], version = 1)
+@Database(entities = [FavoritePojo::class, AlertPojo::class], version = 1, exportSchema = false)
 abstract class SkyWatchDatabase :RoomDatabase()
 {
     abstract fun SkyWatchDao():SkyWatchDao

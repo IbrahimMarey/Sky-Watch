@@ -25,7 +25,7 @@ class SettingSharedPreferences private constructor(applicationContext: Context) 
     }
 
     fun getLocationPref(): String? {
-        return sharedPreferences.getString(LOCATION_PREFERENCES, "")
+        return sharedPreferences.getString(LOCATION_PREFERENCES, "null")
     }
 
 

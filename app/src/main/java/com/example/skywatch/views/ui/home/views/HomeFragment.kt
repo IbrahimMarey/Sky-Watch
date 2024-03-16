@@ -15,6 +15,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
@@ -159,13 +160,15 @@ class HomeFragment : Fragment() {
         val materialAlertDialogBuilder = MaterialAlertDialogBuilder(requireActivity())
         val initialSetupSettingDialogBinding: InitialSetupSettingDialogBinding =
             InitialSetupSettingDialogBinding.inflate(LayoutInflater.from(requireActivity()), null, false)
-        alertDialog = materialAlertDialogBuilder.setView(initialSetupSettingDialogBinding.root)
-            .setTitle(getString(R.string.intial_setup)).setIcon(R.drawable.baseline_settings_24)
+        alertDialog = materialAlertDialogBuilder.setView(initialSetupSettingDialogBinding.root)/*
+            .setTitle(getString(R.string.intial_setup)).setIcon(R.drawable.baseline_settings_24)*/
             .setBackground(
                 ResourcesCompat.getDrawable(
                     resources, R.drawable.dialogue_background, requireActivity().theme
                 )
             ).setCancelable(false).show()
+
+
 
         initialSetupSettingDialogBinding.buttonSave.setOnClickListener {
             if (initialSetupSettingDialogBinding.radioMap.isChecked) {

@@ -56,7 +56,7 @@
     <string name="weather_alert">تحذيرات الطقس</string>
     <string name="weather_is_fine_alert">%1$s الطقس رائع، لا ييوجد تحذيرات في هذة الفترة في </string>
     <string name="dismiss">تجاهل</string>
-    <string name="intial_setup">الاعدادات الاولية</string>
+    <string name="intial_setup">الاعدادات الخريطة</string>
     <string name="save_location">احفظ المكان</string>
     <string name="please_choose_loc_first">الرجاء اختيار المكان اولا</string>
     <string name="The_alarm_may_be_not_work_as_expected">قد لا يعمل المنبه بشكل صحيح، الرجاء تفعيل إذن العرض فوق التطبيقات الأخرى</string>

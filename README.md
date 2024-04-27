@@ -24,7 +24,7 @@ Additionally, Sky Watch empowers users to explore and select different locations
 - Worker Manager
 - Push Notification
 - Create Alarms
-- Coritens
+- Coroutines
 - Material Design
 - Navigation Component
 - Glide for image loading
